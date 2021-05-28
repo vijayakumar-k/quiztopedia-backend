@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gin-gonic/examples/group-routes/routes"
+	"quiztopedia-backend/routes"
 )
 
 func main() {

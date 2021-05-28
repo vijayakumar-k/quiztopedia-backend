@@ -20,6 +20,7 @@ func Run() {
 func getRoutes() {
 	v1 := router.Group("/v1")
 	addUserRoutes(v1)
+	addQuestionsRoutes(v1)
 	addPingRoutes(v1)
 
 	v2 := router.Group("/v2")
