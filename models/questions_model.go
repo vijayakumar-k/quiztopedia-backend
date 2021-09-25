@@ -16,7 +16,7 @@ func GetQuestionById(id string) (Question, error) {
 		return result, err
 	}
 	filter := bson.D{primitive.E{Key: "_id", Value: objectId}}
-	err = questionCollection.FindOne(context.TODO(), filter).Decode(&result)
+	err = questionCollection.FindOne(context.Background(), filter).Decode(&result)
 	if err != nil {
 		return result, err
 	}
@@ -26,11 +26,11 @@ func GetQuestionById(id string) (Question, error) {
 func GetAllQuestions() ([]Question, error) {
 	filter := bson.D{{}}
 	var questions []Question
-	cur, findError := questionCollection.Find(context.TODO(), filter)
+	cur, findError := questionCollection.Find(context.Background(), filter)
 	if findError != nil {
 		return questions, findError
 	}
-	for cur.Next(context.TODO()) {
+	for cur.Next(context.Background()) {
 		var t Question
 		err := cur.Decode(&t)
 		if err != nil {
@@ -38,7 +38,7 @@ func GetAllQuestions() ([]Question, error) {
 		}
 		questions = append(questions, t)
 	}
-	cur.Close(context.TODO())
+	cur.Close(context.Background())
 	if len(questions) == 0 {
 		return questions, mongo.ErrNoDocuments
 	}
@@ -49,7 +49,7 @@ func CreateQuestion(qn *Question) error {
 	qn.ID = primitive.NewObjectID()
 	qn.CreatedDate = time.Now()
 	qn.ModifiedDate = time.Now()
-	_, err := questionCollection.InsertOne(context.TODO(), qn)
+	_, err := questionCollection.InsertOne(context.Background(), qn)
 	if err != nil {
 		return err
 	}
