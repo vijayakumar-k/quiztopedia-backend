@@ -1,0 +1,17 @@
+{
+    "questions": [
+        {
+            "_id": "61456a86261d5daa37e612e7",
+            "text": "<p>This is a sample question?</p>",
+            "type": "One word/MCQ/descriptive",
+            "area": "Maths/Physics/English/Science/Tamil",
+            "weightage": "10",
+            "tags": ["abc", "cde"],
+            "suggested_answers": ["id1", "id2", "id3"],
+            "accepted_answers": ["id1", "id2"],
+            "author_id": "abc",
+            "created_date": "2021-09-18T12:00:00Z",
+            "modified_date": "2021-09-18T12:00:00Z"
+        }
+    ]
+}   

@@ -1,10 +1,11 @@
 package main
 
 import (
+	"quiztopedia-backend/config"
 	"quiztopedia-backend/routes"
 )
 
 func main() {
-	// Our server will live in the routes package
+	config.Connect()
 	routes.Run()
 }
